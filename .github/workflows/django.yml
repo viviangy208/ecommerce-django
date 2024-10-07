@@ -24,8 +24,9 @@ jobs:
         python-version: ${{ matrix.python-version }}
 
     - name: Activate existing virtual environment
+      shell: pwsh
       run: |
-        env\Scripts\activate
+        .\env\Scripts\Activate.ps1
 
     - name: Install Dependencies
       run: |
@@ -34,3 +35,4 @@ jobs:
     - name: Run Tests
       run: |
         python manage.py test
+
