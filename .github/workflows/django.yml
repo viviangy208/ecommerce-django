@@ -8,7 +8,6 @@ on:
 
 jobs:
   build:
-
     runs-on: windows-latest
     strategy:
       max-parallel: 4
@@ -27,6 +26,11 @@ jobs:
       shell: pwsh
       run: |
         python -m venv env
+
+    - name: Bypass PowerShell Execution Policy
+      shell: pwsh
+      run: |
+        Set-ExecutionPolicy Bypass -Scope Process -Force
 
     - name: Activate Virtual Environment
       shell: pwsh
