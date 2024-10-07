@@ -23,7 +23,12 @@ jobs:
       with:
         python-version: ${{ matrix.python-version }}
 
-    - name: Activate existing virtual environment
+    - name: Create Virtual Environment
+      shell: pwsh
+      run: |
+        python -m venv env
+
+    - name: Activate Virtual Environment
       shell: pwsh
       run: |
         .\env\Scripts\Activate.ps1
