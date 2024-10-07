@@ -17,10 +17,17 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+
     - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v3
       with:
         python-version: ${{ matrix.python-version }}
+
+    - name: Create and activate virtual environment
+      run: |
+        python -m venv venv
+        source venv/Scripts/activate
+
 
     - name: Run Tests
       run: |
